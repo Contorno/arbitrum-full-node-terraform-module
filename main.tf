@@ -93,6 +93,17 @@ resource "kubernetes_deployment" "nitro_node" {
             "--http.vhosts=*"
           ]
 
+          resources {
+            requests = {
+              cpu    = "4"
+              memory = "16Gi"
+            }
+            limits = {
+              cpu    = "8"
+              memory = "32Gi"
+            }
+          }
+
           # Port mappings
           port {
             container_port = 8547
@@ -144,6 +155,6 @@ resource "kubernetes_service" "nitro_node_service" {
       target_port = 8548
       protocol    = "TCP"
     }
-    type = "NodePort"
+    type = "ClusterIP"
   }
 }
