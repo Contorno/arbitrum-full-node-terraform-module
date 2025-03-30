@@ -12,6 +12,9 @@ provider "kubernetes" {
 }
 module "arbitrum_full_node" {
   source = "git::https://github.com/Contorno/arbitrum-full-node-terraform-module.git"
-  # Replace this example variable with actual variable(s) from your module
-  example_variable = var.example_variable
+
+  parent_chain_url   = "https://eth-mainnet.g.alchemy.com/v2/example-api-key"
+  beacon_url         = "https://beacon-nd-123-456-789.p2pify.com/example-api-key"
+  chain_id           = "42161"  # Arbitrum One
+  local_arbitrum_dir = "/mnt/arbitrum-data"
 }
