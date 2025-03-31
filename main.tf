@@ -90,6 +90,7 @@ resource "kubernetes_deployment" "nitro_node" {
             "--parent-chain.blob-client.beacon-url=${var.beacon_url}",
             "--chain.id=${var.chain_id}",
             "--init.url=${var.snapshot_url}",
+            "--init.latest=pruned",
             "--http.api=net,web3,eth",
             "--http.corsdomain=*",
             "--http.addr=0.0.0.0",
