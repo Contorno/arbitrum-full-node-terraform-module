@@ -19,7 +19,11 @@ resource "kubernetes_persistent_volume" "arbitrum_pv" {
     access_modes = ["ReadWriteOnce"]
     persistent_volume_reclaim_policy = "Retain" # Keeps data after pod deletion
     storage_class_name = kubernetes_storage_class.local_storage.metadata[0].name
-    path = var.local_arbitrum_dir
+    persistent_volume_source {
+      local {
+        path = var.local_arbitrum_dir
+      }
+    }
 
     node_affinity {
       required {
