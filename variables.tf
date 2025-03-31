@@ -26,5 +26,5 @@ variable "local_arbitrum_dir" {
 variable "snapshot_url" {
   description = "URL for the snapshot used to initialize the Arbitrum Nitro node"
   type = string
-  default = "file:///mnt/arbitrum-snapshot/pruned.tar"
+  default = "file:///home/user/.arbitrum/pruned.tar"
 }
