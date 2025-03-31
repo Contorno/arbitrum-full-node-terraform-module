@@ -57,7 +57,6 @@ resource "kubernetes_persistent_volume_claim" "arbitrum_pvc" {
   }
 }
 
-# Deployment for the Arbitrum Nitro node
 resource "kubernetes_deployment" "nitro_node" {
   metadata {
     name      = "nitro-node"
@@ -91,6 +90,7 @@ resource "kubernetes_deployment" "nitro_node" {
             "--parent-chain.blob-client.beacon-url=${var.beacon_url}",
             "--chain.id=${var.chain_id}",
             "--init.latest=pruned",
+            "--init.url=${var.snapshot_url}",
             "--http.api=net,web3,eth",
             "--http.corsdomain=*",
             "--http.addr=0.0.0.0",

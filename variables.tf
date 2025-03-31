@@ -21,3 +21,10 @@ variable "local_arbitrum_dir" {
   type        = string
   default     = "/mnt/arbitrum-data"
 }
+
+# Deployment for the Arbitrum Nitro node
+variable "snapshot_url" {
+  description = "URL for the snapshot used to initialize the Arbitrum Nitro node"
+  type = string
+  default = "file:///mnt/arbitrum-snapshot"
+}
