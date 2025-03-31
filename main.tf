@@ -24,18 +24,6 @@ resource "kubernetes_persistent_volume" "arbitrum_pv" {
         path = var.local_arbitrum_dir
       }
     }
-
-    node_affinity {
-      required {
-        node_selector_term {
-          match_expressions {
-            key      = "kubernetes.io/hostname"
-            operator = "In"
-            values   = [] # Replace with your node's hostname or leave empty for single-node clusters
-          }
-        }
-      }
-    }
   }
 }
 
