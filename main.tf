@@ -31,7 +31,7 @@ resource "kubernetes_persistent_volume" "arbitrum_pv" {
           match_expressions {
             key      = "kubernetes.io/hostname"
             operator = "In"
-            values   = [""] # Replace with your node's hostname or leave empty for single-node clusters
+            values   = [] # Replace with your node's hostname or leave empty for single-node clusters
           }
         }
       }
